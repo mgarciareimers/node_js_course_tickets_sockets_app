@@ -4,26 +4,14 @@ const { TicketControl } = require('../classes/ticket-control');
 const ticketControl = new TicketControl();
 
 io.on('connection', (client) => {
-    console.log('User has been connected!');
+    console.log('Connected!');
     // *************************
     // on: Listen information.
     // emit: Send information.
     // *************************
-    client.emit('sendMessageServer', { user: 'Admin', message: 'Welcome'})
+    client.on('newTicket', (data, callback) => callback(ticketControl.nextTicket()));
 
-    client.on('disconnect', () => {
-        console.log('User disconnected!');
-    })
+    client.on('disconnect', () => console.log('User disconnected!'));
 
-    client.on('sendMessageClient', (data, callback) => {
-        console.log(data);
-
-        client.broadcast.emit('sendMessageServer', { user: data.user, message: data.message })
-
-        if (callback == null) {
-            return
-        }
-
-        //callback({ response: data.user !== undefined && data.user !== null ? 'All went fine!' : 'Something went wrong' });
-    });
+    client.emit('currentTicket', ticketControl.getLastTicket());
 });

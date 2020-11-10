@@ -9,7 +9,7 @@ class TicketControl {
         const data = require('../data/data.json');
 
         if (data.today === this.today) {
-            this.lastTicket = data.lastTicketL
+            this.lastTicket = data.lastTicket;
         } else {
             this.resetData();
         }
@@ -33,6 +33,11 @@ class TicketControl {
     saveFile = () => {
         const jsonData = { 'lastTicket': this.lastTicket, 'today': this.today };
         fs.writeFileSync('./server/data/data.json', JSON.stringify(jsonData));
+    }
+
+    // Get last ticket.
+    getLastTicket() {
+        return `Ticket ${ this.lastTicket }`;
     }
 }
 
