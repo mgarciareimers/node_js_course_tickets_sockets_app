@@ -1,5 +1,4 @@
 const socket = io();
-
 const label = $('#lblNuevoTicket');
 
 socket.on('connect', (data) => {

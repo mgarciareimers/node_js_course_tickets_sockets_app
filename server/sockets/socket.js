@@ -13,5 +13,13 @@ io.on('connection', (client) => {
 
     client.on('disconnect', () => console.log('User disconnected!'));
 
+    client.on('assignDesktopToTicket', (data, callback) => {
+        if (data.desktop === undefined || data.desktop === null) {
+            return callback({ ok: false, message: 'The desktop is required' });
+        }
+
+        callback(ticketControl.assignDesktopToTicket(data.desktop));
+    });
+
     client.emit('currentTicket', ticketControl.getLastTicket());
 });
