@@ -24,14 +24,14 @@ socket.on('disconnect', (data) => {
 socket.on('currentState', (data) => {
     updateHTML(data.nextFourTickets);
 
-    if (nextFourTickets.length > 0) {
+    if (data.nextFourTickets !== null && data.nextFourTickets.length > 0) {
         const audio = new Audio('audio/new-ticket.mp3');
         audio.play();
     }
 });
 
 const updateHTML = (nextFourTickets) => {
-    if (nextFourTickets.length <= 0) {
+    if (nextFourTickets === null || nextFourTickets.length <= 0) {
         for (let i = 1; i < lblTickets.length; i++) {
             lblTickets[i].text('');
             lblDesktops[i].text('');
