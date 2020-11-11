@@ -68,7 +68,6 @@ class TicketControl {
             this.nextFourTickets.splice(-1, 1);
         }
 
-        console.log(this.nextFourTickets);
         this.saveFile();
 
         return ticketToServe;

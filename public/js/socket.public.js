@@ -23,9 +23,11 @@ socket.on('disconnect', (data) => {
 
 socket.on('currentState', (data) => {
     updateHTML(data.nextFourTickets);
-    console.log(data.nextFourTickets);
-    const audio = new Audio('audio/new-ticket.mp3');
-    audio.play();
+
+    if (nextFourTickets.length > 0) {
+        const audio = new Audio('audio/new-ticket.mp3');
+        audio.play();
+    }
 });
 
 const updateHTML = (nextFourTickets) => {
