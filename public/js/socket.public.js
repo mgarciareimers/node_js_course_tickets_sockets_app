@@ -36,7 +36,7 @@ const updateHTML = (nextFourTickets) => {
         }
 
         lblTickets[0].text('Please wait to be called...');
-        lblDesktops[i].text('Get a ticket if you didn\'t')
+        lblDesktops[0].text('Get a ticket if you didn\'t')
 
         return;
     }
