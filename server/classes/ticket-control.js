@@ -52,6 +52,8 @@ class TicketControl {
     // Method that assigns a desktop to a ticket.
     assignDesktopToTicket = (desktop) => {
         if (this.tickets.length <= 0) {
+            this.nextFourTickets = [];
+            this.saveFile();
             return 'No tickets have been found';
         }
 
@@ -70,6 +72,11 @@ class TicketControl {
         this.saveFile();
 
         return ticketToServe;
+    }
+
+    // Get next four tickets.
+    getNextFourTickets = () => {
+        return this.nextFourTickets;
     }
 }
 

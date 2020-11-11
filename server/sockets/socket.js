@@ -18,8 +18,13 @@ io.on('connection', (client) => {
             return callback({ ok: false, message: 'The desktop is required' });
         }
 
-        callback(ticketControl.assignDesktopToTicket(data.desktop));
+        const response = ticketControl.assignDesktopToTicket(data.desktop);
+        
+        // Update state in all clients.
+        client.broadcast.emit('currentState', { lastTicket: ticketControl.getLastTicket(), nextFourTickets: ticketControl.getNextFourTickets() });
+        
+        callback(response);
     });
 
-    client.emit('currentTicket', ticketControl.getLastTicket());
+    client.emit('currentState', { lastTicket: ticketControl.getLastTicket(), nextFourTickets: ticketControl.getNextFourTickets() });
 });

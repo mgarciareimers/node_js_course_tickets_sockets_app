@@ -9,8 +9,8 @@ socket.on('disconnect', (data) => {
     console.log('Disconnected');
 });
 
-socket.on('currentTicket', (data) => {
-    label.text(data);
+socket.on('currentState', (data) => {
+    label.text(data.lastTicket);
 });
 
 $('button').on('click', () => socket.emit('newTicket', null, (data) => label.text(data)));

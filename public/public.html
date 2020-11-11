@@ -9,7 +9,6 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 
 <!-- <body class="container"> -->
@@ -19,31 +18,31 @@
     <table>
         <tr>
             <td valign="middle" class="ticket-actual">
-                <span id="lblTicket1" class="ticket-actual-numero">Ticket W</span>
+                <span id="lblTicket1" class="ticket-actual-numero">Please wait to be called...</span>
                 <br>
-                <span id="lblEscritorio1" class="ticket-actual-desktop">Desktop W</span>
+                <span id="lblEscritorio1" class="ticket-actual-desktop">Get a ticket if you didn't</span>
             </td>
             <td>
                 <table>
                     <tr>
                         <td>
-                            <span id="lblTicket2" class="ticket-secundario">Ticket X</span>
+                            <span id="lblTicket2" class="ticket-secundario"></span>
                             <br>
-                            <span id="lblEscritorio2">Desktop X</span>
+                            <span id="lblEscritorio2"></span>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <span id="lblTicket3" class="ticket-secundario">Ticket Y</span>
+                            <span id="lblTicket3" class="ticket-secundario"></span>
                             <br>
-                            <span id="lblEscritorio3">Desktop Y</span>
+                            <span id="lblEscritorio3"></span>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <span id="lblTicket4" class="ticket-secundario">Ticket Z</span>
+                            <span id="lblTicket4" class="ticket-secundario"></span>
                             <br>
-                            <span id="lblEscritorio4">Desktop Z</span>
+                            <span id="lblEscritorio4"></span>
                         </td>
                     </tr>
                 </table>
@@ -51,7 +50,9 @@
         </tr>
     </table>
 
-
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="js/socket.public.js"></script>
 </body>
 
 </html>
